@@ -14,7 +14,7 @@ import './layout.css';
 export class Layout extends Component {
     render() {
         return (
-            <div>
+            <div className="currentLayout">
                 <div className="userNick">
                     <div>
                         <img src={NasaLogo} alt="NasaLogo"/>

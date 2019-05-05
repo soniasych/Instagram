@@ -6,7 +6,7 @@ import {Footer} from './Footer';
 
 const App = () => {
   return (
-    <div>
+    <div className="screen-content">
       <NavBar />
       <Layout />
       <Footer />

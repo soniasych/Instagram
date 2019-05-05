@@ -1,3 +1,7 @@
+.currentLayout{
+    height: -9vh;
+}
+
 .userNick{
     display: flex;
     flex-direction: row;
@@ -25,4 +29,3 @@
 .userImage img{
     width: 100%;
 }
-

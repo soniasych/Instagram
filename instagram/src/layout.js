@@ -44,8 +44,7 @@ export class Layout extends Component {
                     </div>
                 </div>
                 
-
-                <div>Likes</div>
+                <div>Likes amount</div>
                 <div>Comments</div>
             </div>
         );

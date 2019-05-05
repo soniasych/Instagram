@@ -1,11 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { NavBar } from './NavBar';
+import { Layout } from './layout';
+import {Footer} from './Footer';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    Привіт, моя солодка
+    <div>
+      <NavBar />
+      <Layout />
+      <Footer />
     </div>
   );
 }

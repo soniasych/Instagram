@@ -1,0 +1,27 @@
+.userNick{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+.userNick img{
+    width: 3vw;
+    height: auto;
+    vertical-align: middle;
+
+}
+
+.userNick div{
+    justify-content: flex-start;
+    margin: 0 1%;
+}
+
+.userNick div:last-child{
+    margin-left: auto;
+}
+
+.userImage img{
+    width: 100%;
+}
+

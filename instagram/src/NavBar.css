@@ -1,0 +1,32 @@
+.MainNavBar{
+    border-bottom: 1pt solid lightgray;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    margin: 2%;
+}
+
+.navbar img{
+    width: 3vw;
+    height: auto;
+    vertical-align: middle;
+    /*padding-top: 3%;*/
+}
+
+/*.navbar div{
+    justify-content: flex-start;
+}
+
+.navbar div:last-child{
+    margin-left: auto;
+}
+
+.MainLogo{
+    justify-content: space-around;
+}
+*/
+.MainLogo img{
+    width: 12vw;
+}

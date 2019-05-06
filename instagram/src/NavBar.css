@@ -5,24 +5,17 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    margin: 2% 3%;
+    box-sizing: border-box;
+    padding: 5px 20px;
 }
 
-.navbar img{
-    width: 3vw;
+.navbar img {
+    width: 25px;
     height: auto;
     vertical-align: middle;
+    padding-top: 6px;
 }
 
-/*.navbar div{
-    margin-top: 0.5%;
-}
-*/
-/*
-.navbar div:last-child{
-    margin-left: auto;
-}
-*/
 .MainLogo img{
-    width: 12vw;
+    width: 100px;
 }

@@ -15,21 +15,21 @@ export class Layout extends Component {
     render() {
         return (
             <div className="currentLayout">
-                <div className="userNick">
-                    <div>
+                <div className="userOptions">
+                    <div className="userNickImage">
                         <img src={NasaLogo} alt="NasaLogo"/>
                     </div>
                     <div>
                         nasa
                     </div>
-                    <div>
+                    <div className="userImageOptions">
                         <img src={InstagramOptions} alt="InstagramOptions"/>
                     </div>
                 </div>
                 <div className="userImage">
                     <img src={SaturnImage} alt="Saturn"/>
                 </div>
-                <div className="userNick">
+                <div className="userOptions">
                     <div>
                         <img src={LikeIcon} alt="LikeIcon"/>
                     </div>

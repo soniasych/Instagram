@@ -1,8 +1,8 @@
-.MainNavBar{
+.MainNavBar {
     border-bottom: 1pt solid lightgray;
 }
 
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
@@ -16,6 +16,6 @@
     padding-top: 6px;
 }
 
-.MainLogo img{
+.MainLogo img {
     width: 100px;
 }

@@ -11,8 +11,54 @@ import SaveIcon from './assets/instagram-save.png';
 
 import './layout.css';
 
-export class Layout extends Component {
+export class Layout extends Component {    
+    constructor(props){
+        super(props);
+        this.state = {
+            comments: [
+                {
+                    commentId: 1,
+                    commentAuthor: "sonia_sych",
+                    commentText: "Beautiful picture"
+                },
+                {
+                    commentId: 2,
+                    commentAuthor: "yuliia_pavlik",
+                    commentText: "It`s amazing!"
+                },
+                {
+                    commentId: 3,
+                    commentAuthor: "natasul",
+                    commentText: "Wow!"
+                },
+                {
+                    commentId: 4,
+                    commentAuthor: "anastasia_poli",
+                    commentText: "Nothing special..."
+                },
+                {
+                    commentId: 5,
+                    commentAuthor: "olivi_k",
+                    commentText: "Is it real picture?"
+                }
+            ]
+        };
+    }    
+
+    renderCommentList = () => {       
+        return(<ul>
+            { this.state.comments.map(
+                comment => <li key={comment.commentId}>
+                <span>{comment.commentAuthor}</span>
+                <span>{comment.commentText}</span>
+            </li>
+            )}
+        </ul>
+        );
+    }
+
     render() {
+       let сomments = this.renderCommentList();
         return (
             <div className="currentLayout">
                 <div className="userOptions">
@@ -28,6 +74,11 @@ export class Layout extends Component {
                 </div>
                 <div className="userImage">
                     <img src={SaturnImage} alt="Saturn"/>
+                    <div>Likes amount</div>
+                    <div className="userImageDescription">
+                        <span>nasa</span>
+                        <p>Some description</p>
+                    </div>
                 </div>
                 <div className="userOptions">
                     <div>
@@ -43,9 +94,11 @@ export class Layout extends Component {
                         <img src={SaveIcon} alt="SaveIcon"/>
                     </div>
                 </div>
-                
-                <div>Likes amount</div>
-                <div>Comments</div>
+                <div>Comments
+                    <div>
+                    {сomments}
+                    </div>
+                </div>
             </div>
         );
     }

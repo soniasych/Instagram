@@ -81,60 +81,20 @@ export class Layout extends Component {
     
       } */
 
-   /*  handleChange(event){
+    handleChange(event){
         var newArray = this.state.comments.slice();   
         newArray.push(this.state.newComment);   
         this.setState({comments:newArray})
-    } */
-
-    handleChange = (e) => {
-        this.setState({
-            newComment: e.target.value
-        })
     }
 
-    /* handleSubmit(event){
+  
+    handleSubmit(event){
         let submit = this.state.newComment;
             //event.PreventDefault();
             return(submit);
         
-    } */
-
-    addValue(evt)
-    {
-      evt.preventDefault();
-      if(this.state.newComment.commentText !=undefined)
-      {
-        alert('Your input value is: ' + this.state.newComment.commentText)
-      }
     }
-
-    updateInput(evt){
-        this.state={value: evt.target.value};   
-          }
-
-
-    handleSubmit(event){
-        event.preventDefault();
-        var newArray = this.state.comments.slice();   
-        const form = {
-            commentId: this.state.newComment.commentId,
-            commentAuthor: this.state.newComment.commentAuthor,
-            commentText: this.state.newComment.commentText
-           }
-
-           newArray.push(form);
-           this.setState({
-                comments: {
-                    commentId: '', 
-                    commentAuthor: '',
-                    commentText: ''
-            }
-           })
-        
-    }
-
-
+      
     ShowNewCommentHandler = () => {
         const doesShow = this.state.showComments;
         this.setState({showComments: !doesShow});
@@ -222,17 +182,12 @@ export class Layout extends Component {
                     } */}
                     {outputComments}
                     <div>Add comment
-                        <form onSubmit={this.addValue} >
-                        {/* <form onSubmit={this.handleSubmit} > */}
-                        {/* <form> */}
+                        
+                        <form onSubmit={this.handleSubmit}>
                             <label>Nasa
-                           {/*  <input type="text" id="inputfield" value={this.state.newComment.commentText} onChange={e => this.handleChange(e)} /> */}
-                                 <input type="text" id="inputfield" onChange={(e) => this.updateInput(e)}>
-                                  
-                                </input> 
+                                <input type="text" id="inputfield" value={this.state.newComment.commentText} />
                             </label>
-                            {/* <input onClick={() => this.handleChange()} type="submit" value="add"/> */}
-                            <input  type="submit" value="add"/>
+                            <input onClick={() => this.handleChange()} type="submit" value="add"/>
                         </form>
                         
                     </div>

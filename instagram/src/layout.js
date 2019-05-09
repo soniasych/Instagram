@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import NasaLogo from './assets/NASA_logo.png';
-import SaturnImage from './assets/saturn.jpg'
+import ProfileImage from './assets/profile_photo2.jpg';
+import ProfileImage1 from './assets/profile_photo7.jpg';
+import ProfileImage2 from './assets/profile_photo4.jpg';
+import ProfileImage3 from './assets/profile_photo3.jpg';
+import SaturnImage from './assets/saturn.jpg';
+import MyProfileImage from './assets/profile_photo1.jpg';
 import InstagramOptions from './assets/instagram-options.png';
 import LikeIcon from './assets/instagram-like.png';
 /*import UnlikeIcon from './assets/instagram-unlike.png';*/
@@ -19,81 +24,53 @@ export class Layout extends Component {
                 {
                     commentId: 1,
                     commentAuthor: "sonia_sych",
+                    commentAuthorImage: MyProfileImage,
                     commentText: "Beautiful picture"
                 },
                 {
                     commentId: 2,
                     commentAuthor: "yuliia_pavlik",
+                    commentAuthorImage: ProfileImage,
                     commentText: "It`s amazing!"
                 },
                 {
                     commentId: 3,
                     commentAuthor: "natasul",
+                    commentAuthorImage: ProfileImage1,
                     commentText: "Wow!"
                 },
                 {
                     commentId: 4,
                     commentAuthor: "anastasia_poli",
+                    commentAuthorImage: ProfileImage2,
                     commentText: "Nothing special..."
                 },
                 {
                     commentId: 5,
                     commentAuthor: "olivi_k",
+                    commentAuthorImage: ProfileImage3,
                     commentText: "Is it real picture?"
                 }
             ],
-            defaultComment:  {
-                commentId: 6,
-                commentAuthor: "rgosling",
-                commentText: "La La Land"
-            },
+
             showComments: false,
-            newComment:  {
-                commentId: 7,
-                commentAuthor: "nasa",
-                commentText: ""
-            },
-            VeryNewComment: {}
+            
+            commentss: [
+                {
+                    commentId: 1,
+                    commentAuthor: "sonia_sych",
+                    commentAuthorImage: MyProfileImage,
+                    commentText: "Beautiful picture"
+                }
+            ],
+            commentText: ""
         };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        //this.updateInputValue = this.updateInputValue.bind(this);
-    }
-
-   
-
-    /* handleChange(event){
-        this.setState(
-            {defaultComment: event.target.defaultComment}
-            );
-    } */
-
-    /* handleChange(event){
-        this.setState(
-            {comments: this.state.comments.concat({defaultComment: ""})}
-            );
-    } */
-    
-    /* updateInputValue(evt){
-        //console.log("input field updated with "+evt.target.value);
-        this.state={newComment: evt.target.value};   
-    
-      } */
-
-    handleChange(event){
-        var newArray = this.state.comments.slice();   
-        newArray.push(this.state.newComment);   
-        this.setState({comments:newArray})
-    }
-
-  
-    handleSubmit(event){
-        let submit = this.state.newComment;
-            //event.PreventDefault();
-            return(submit);
+        this.onCommentTextChange = this.onCommentTextChange.bind(this);
+        this.onCommentSubmit = this.onCommentSubmit.bind(this);
         
     }
+
       
     ShowNewCommentHandler = () => {
         const doesShow = this.state.showComments;
@@ -102,15 +79,52 @@ export class Layout extends Component {
 
     
     renderCommentList = () => {       
-        return(<ul>
-            { this.state.comments.map(
-                comment => <li key={comment.commentId}>
-                <span>{comment.commentAuthor}</span>
-                <span>{comment.commentText}</span>
-            </li>
-            )}
-        </ul>
+        return(
+            <div className="userProfileImage">
+                <ul>
+                    { this.state.comments.map(
+                        comment => 
+                        <li key={comment.commentId} id="comments-list">
+                        <img src={comment.commentAuthorImage} alt="userImage" />
+                        <span id="comment-space">{comment.commentAuthor}  </span>
+                        <span>{comment.commentText}</span>
+                    </li>
+                    )}
+                </ul>
+            </div>
         );
+    }
+
+    onCommentTextChange = event => {
+        this.setState({commentText: event.target.value});
+    }
+
+    determineMaxId = () => {
+        var id = Math.max.apply(Math, this.state.comments.map(comment => {return comment.commentId;}));
+        return id;
+    }
+
+    onCommentSubmit = event => {
+        let newArray = [...this.state.comments];
+        let newId = this.determineMaxId() + 1;
+        let commentText = this.state.commentText;
+
+        let comment = {
+            commentId: newId,
+            commentAuthor: "nasa  ",
+            commentAuthorImage: NasaLogo,
+            commentText: commentText
+        };
+
+        newArray.push(comment);
+
+        this.setState(() => {
+            return {comments: newArray,
+                    commentText: ""
+            };
+        });
+
+        event.preventDefault();
     }
 
     render() {
@@ -120,22 +134,13 @@ export class Layout extends Component {
        if(this.state.showComments)
        {
            outputComments = (
-            <div>
+            <div className="comment-list">
                 {сomments}
             </div>
            );
        }
 
-       /* let commentCopy = JSON.parse(JSON.stringify(this.state.comments))
-       //make changes to ingredients
-       commentCopy[2].commentText = //whatever new ingredients are
-       this.setState({
-          comments:commentCopy 
-        }); */
-
-
-
-       //let newComment = this.state.defaultComment.commentText;
+       
         return (
             <div className="currentLayout">
                 <div className="userOptions">
@@ -151,11 +156,6 @@ export class Layout extends Component {
                 </div>
                 <div className="userImage">
                     <img src={SaturnImage} alt="Saturn"/>
-                    <div>Likes amount</div>
-                    <div className="userImageDescription">
-                        <span>nasa</span>
-                        <p>Some description</p>
-                    </div>
                 </div>
                 <div className="userOptions">
                     <div>
@@ -171,9 +171,17 @@ export class Layout extends Component {
                         <img src={SaveIcon} alt="SaveIcon"/>
                     </div>
                 </div>
-                <div>Comments
+                <div className="userImageDescription">
+                    <div>Likes amount</div>
                     <div>
-                        <a href="#" onClick={this.ShowNewCommentHandler} >Show comments</a>
+                        <label>nasa</label>
+                        <span>Some description</span>
+                    </div>
+                </div>
+
+                <div className="comments">
+                    <div>
+                        <a href="#" onClick={this.ShowNewCommentHandler}>Show all comments</a>
                     </div>
                     {/* { this.state.showComments ?
                     <div>
@@ -181,13 +189,14 @@ export class Layout extends Component {
                     </div> : null
                     } */}
                     {outputComments}
-                    <div>Add comment
-                        
-                        <form onSubmit={this.handleSubmit}>
-                            <label>Nasa
-                                <input type="text" id="inputfield" value={this.state.newComment.commentText} />
-                            </label>
-                            <input onClick={() => this.handleChange()} type="submit" value="add"/>
+                    <div>
+                        <form onSubmit={this.onCommentSubmit}>
+                            <div className="add-comment">
+                                <label>nasa</label>
+                                <input name="commentText" type="text" value={this.state.commentText} onChange={this.onCommentTextChange} placeholder="Add comment..."/>
+                                <button name="addCommentButton" type="submit" value="Publish">Publish</button>
+                            </div>
+                            
                         </form>
                         
                     </div>

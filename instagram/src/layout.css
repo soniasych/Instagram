@@ -1,6 +1,7 @@
 .currentLayout{
     height: -9vh;
     min-height: calc(100vh - 60px);
+    font-size: 1em;
     
 }
 
@@ -39,8 +40,94 @@
     vertical-align: middle;
 }
 
+.userProfileImage img{
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    object-fit: cover;
+    
+}
+
 .userImageOptions img{
     width: 35px;
     height: auto;
     vertical-align: middle;
+}
+
+.userImageDescription{
+    margin-left: 1.8em;
+    padding-bottom: 1.8em;
+}
+
+.userImageDescription label{
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+.comments a{
+    text-decoration: none;
+    color: gray;
+    margin-left: 1.8em;
+}
+
+.comments ul{
+    list-style-type: none;
+    margin-block-start: 0.6em;
+    margin-block-end: 0.6em;
+    padding-inline-start: 0.8em;
+}
+
+#comments-list{
+    padding-bottom: 0.5em;
+}
+
+#comment-space{
+    padding-left: 0.6em;
+    font-weight: bold;
+}
+
+.comments-space{
+    padding-left: 0.6em;
+    font-weight: bold;
+}
+
+.comment-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.add-comment{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2.5vw;
+    box-sizing: border-box;
+    border-top: 1px solid lightgray;
+}
+
+.add-comment label{
+    font-weight: bold;
+}
+
+.add-comment input{
+    justify-content: flex-start;
+    margin-left: 5%;
+    border-style: none;
+    outline: none;
+    font-size: 1em;
+    padding-left: 0.2vw;
+}
+
+.add-comment button{
+    margin-left: auto;
+    margin-right: 0%;
+    border-style: none;
+    outline: none;
+    background-color: white;
+    color: steelblue;
+    font-size: 1em;
 }

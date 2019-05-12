@@ -1,6 +1,9 @@
 .MainNavBar {
     border-bottom: 1pt solid lightgray;
+    background: white;
     padding-top: 3px;
+    position: sticky;
+    top: 0;
 }
 
 .navbar {

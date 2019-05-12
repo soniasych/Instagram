@@ -1,21 +1,19 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import './App.css';
-import { NavBar } from './NavBar';
-import { Layout } from './Layout/layout';
-import {Footer} from './Footer';
+import React, { Component } from 'react';
+import { PostLayout } from './Layout/PostLayout/PostLayout';
+import { Layout } from './Layout/Layout';
+import { Route, BrowserRouter } from 'react-router-dom';
+import { Comments } from './Layout/Comments/Comments';
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <div className="screen-content">
-        <NavBar />
-        <Layout />
-        <Footer />
-      </div>
-    </BrowserRouter>
-    
-  );
+export default class App extends Component {
+  static displayName = App.name;
+  render() {
+    return (
+      <BrowserRouter>
+        <Layout>
+          <Route exact path='/' component={PostLayout} />
+          <Route exact path='/comments' component={Comments} />
+        </Layout>
+      </BrowserRouter>
+    );
+  }
 }
-
-export default App;

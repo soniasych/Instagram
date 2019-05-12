@@ -1,19 +1,19 @@
 .MainNavBar {
     border-bottom: 1pt solid lightgray;
+    padding-top: 3px;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 5px 20px;
+    padding: 10px 20px;
 }
 
 .navbar img {
     width: 25px;
     height: auto;
     vertical-align: middle;
-    padding-top: 6px;
 }
 
 .MainLogo img {

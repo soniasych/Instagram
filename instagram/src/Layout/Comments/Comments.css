@@ -8,6 +8,11 @@
     
 }
 
+
+.comments{
+    min-height: calc(100vh - 53px);
+}
+
 .comments ul{
     list-style-type: none;
     margin-block-start: 0.6em;

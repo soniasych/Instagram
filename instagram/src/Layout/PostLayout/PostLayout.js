@@ -59,9 +59,9 @@ export class PostLayout extends Component {
                     </div>
                 </div>
 
-                <div className="comments">
+                <div>
                     <div>
-                        <Link to="/comments">Show all comments</Link>
+                        <Link id="comments" to="/comments">Show all comments</Link>
                     </div>
                 </div>
             </div>

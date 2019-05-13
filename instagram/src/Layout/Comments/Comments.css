@@ -55,7 +55,7 @@
 }
 
 .add-comment input{
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     margin-left: 5%;
     border-style: none;
     outline: none;
@@ -71,4 +71,5 @@
     background-color: white;
     color: steelblue;
     font-size: 1em;
+    padding: 0;
 }

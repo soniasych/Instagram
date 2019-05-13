@@ -5,8 +5,11 @@ import ProfileImage from '../../assets/profile_photo2.jpg';
 import ProfileImage1 from '../../assets/profile_photo7.jpg';
 import ProfileImage2 from '../../assets/profile_photo4.jpg';
 import ProfileImage3 from '../../assets/profile_photo3.jpg';
+import BackArrow from '../../assets/instagram-arrows-left.png';
+import Direct from '../../assets/instagram-direct-message.png';
 
 import '../Comments/Comments.css';
+
 
 export class Comments extends Component{
     constructor(props){
@@ -108,10 +111,24 @@ export class Comments extends Component{
         
         return(
             <div className="comments">
+                <div className="MainComments-header">
+                    <div className="comments-header">
+                        <div>
+                            <img src={BackArrow} alt="BackArrow"/>
+                        </div>
+                        <div>
+                            <label>Comments</label>
+                        </div>
+                        <div>
+                            <img src={Direct} alt="Direct"/>
+                        </div>
+                    </div>
+                </div>
                 <div className="comment-list">
                     {сomments}
                 </div> 
-                <div>
+                <div class="input-comment">
+                {/* <div> */}
                     <form onSubmit={this.onCommentSubmit}>
                         <div className="add-comment">
                             <label>nasa</label>
@@ -119,6 +136,7 @@ export class Comments extends Component{
                             <button name="addCommentButton" type="submit" value="Publish">Publish</button>
                         </div>   
                     </form>  
+                {/* </div> */}
                 </div>
             </div>
         )

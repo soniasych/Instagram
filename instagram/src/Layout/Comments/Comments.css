@@ -20,6 +20,42 @@
     padding-inline-start: 0.8em;
 }
 
+.MainComments-header{
+    border-bottom: 1pt solid lightgray;
+    background: white;
+    position: sticky;
+    top: 0;
+}
+
+.comments-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.comments-header img{
+    width: 25px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.comments-header div{
+    justify-content: flex-start;
+    margin: 0 1.5%;
+}
+
+.comments-header div:last-child{
+    /* justify-content: flex-end; */
+    margin-left: auto;
+    margin-right: 0%;
+}
+
+.comments-header label{
+    font-weight: bold;
+    font-size: 1.08em;
+}
+
 #comments-list{
     padding-bottom: 0.5em;
 }
@@ -39,15 +75,26 @@
     flex-direction: row;
     justify-content: space-between;
     box-sizing: border-box;
+    min-height: calc(100vh - 41px);
+    padding-bottom: 31px;
+}
+
+.input-comment{
+    position: sticky;
+    bottom: 0;
+    border-top: 1pt solid lightgray;
+    background: white;
+}
+
+.input-comment form{
+        box-sizing: border-box;
+        padding: 15px 20px;
 }
 
 .add-comment{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 2.5vw;
-    box-sizing: border-box;
-    border-top: 1px solid lightgray;
+    /* flex-direction: row;
+    justify-content: space-between; */
 }
 
 .add-comment label{

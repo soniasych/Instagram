@@ -52,7 +52,9 @@ export class PostLayout extends Component {
                             <img src={LikeIcon} alt="LikeIcon" />
                         </div>
                         <div>
-                            <img src={CommentIcon} alt="CommentIcon" />
+                            <Link to="/comments">
+                                <img src={CommentIcon} alt="CommentIcon" />
+                            </Link>
                         </div>
                         <div>
                             <img src={ShareIcon} alt="ShareIcon" />
@@ -87,7 +89,14 @@ export class PostLayout extends Component {
     async getPostData() {
         const response = await Axios.get(`https://5b27755162e42b0014915662.mockapi.io/api/v1/posts/`);
         const data = await response.data;
+        /* const updateData = data.map(update => {
+            return {
+                ...update,
+                comments: []
+            }
+        }); */
         this.setState({post: data});
+        //this.setState({post: updateData});
         console.log(data);
         console.log(this.state.post);
     }

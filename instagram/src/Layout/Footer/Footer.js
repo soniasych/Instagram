@@ -6,6 +6,7 @@ import SearchIcon from '../../assets/instagram-search.png';
 import LoadImageIcon from '../../assets/instagram-load-image.png';
 import LikeIcon from '../../assets/instagram-like.png';
 import UserProfileIcon from '../../assets/instagram-user-profile.png';
+import { Link } from 'react-router-dom';
 
 export class Footer extends Component {
     render() {
@@ -13,13 +14,17 @@ export class Footer extends Component {
             <div className="MainFooter">
                 <div className="navbar">
                     <div>
-                        <img src={HomeIcon} alt="HomeIcon" />
+                        <Link to="/">
+                            <img src={HomeIcon} alt="HomeIcon" />
+                        </Link>
                     </div>
                     <div>
                         <img src={SearchIcon} alt="SearchIcon" />
                     </div>
                     <div>
-                        <img src={LoadImageIcon} alt="LoadImageIcon" />
+                        <Link to="/newPost">
+                            <img src={LoadImageIcon} alt="LoadImageIcon" />
+                        </Link>
                     </div>
                     <div>
                         <img src={LikeIcon} alt="LikeIcon" />

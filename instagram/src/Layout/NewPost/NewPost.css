@@ -1,3 +1,29 @@
+/* .NewPost div{
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+} */
+
+.NewPost-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.NewPost-container div{
+    padding: 3vw 5vw 0;
+}
+
+.NewPost-container div:first-child{
+    padding: 0;
+}
+
+.NewPost-container div:last-child{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .MainNewPost-header{
     border-bottom: 1pt solid lightgray;
     background: white;
@@ -46,22 +72,41 @@
     width: 100%;
     max-height: 400px;
     object-fit: cover;
+    visibility: hidden;
+}
+
+.Special-image{
+    visibility: visible; 
 }
 
 .NewPost textarea{
     border-style: none;
     outline: none;
-    font-size: 1em;
-    margin-left: 7vw;
-    width: 85vw;
-    /* height: 20vw; */
+    width: 200vw;
     min-height: 20vw;
-    font-size: 1em;
-    margin-bottom: 5vw;
+    font-size:  1.08em;
 }
 
 .NewPost-description{
-    /* width: 90vw; */
-    margin-top: 5vw;
     border-bottom: 1px solid lightgray;
+}
+
+.NewPost-input-file input{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.NewPost-input-file input + label{
+    border-style: none;
+    outline: none;
+    background-color: white;
+    color: steelblue;
+    font-size: 1.08em;
+    font-weight: bold;
+
+    
 }

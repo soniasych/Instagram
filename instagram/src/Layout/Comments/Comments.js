@@ -19,42 +19,42 @@ export class Comments extends Component{
         this.state = {
             comments: [
                 {
-                    commentId: 1,
-                    commentAuthor: "sonia_sych",
-                    commentAuthorImage: MyProfileImage,
-                    commentText: "Beautiful picture"
+                    Id: 1,
+                    Author: "sonia_sych",
+                    AuthorImage: MyProfileImage,
+                    Text: "Beautiful picture"
                 },
                 {
-                    commentId: 2,
-                    commentAuthor: "yuliia_pavlik",
-                    commentAuthorImage: ProfileImage,
-                    commentText: "It`s amazing!"
+                    Id: 2,
+                    Author: "yuliia_pavlik",
+                    AuthorImage: ProfileImage,
+                    Text: "It`s amazing!"
                 },
                 {
-                    commentId: 3,
-                    commentAuthor: "natasul",
-                    commentAuthorImage: ProfileImage1,
-                    commentText: "Wow!"
+                    Id: 3,
+                    Author: "natasul",
+                    AuthorImage: ProfileImage1,
+                    Text: "Wow!"
                 },
                 {
-                    commentId: 4,
-                    commentAuthor: "anastasia_poli",
-                    commentAuthorImage: ProfileImage2,
-                    commentText: "Nothing special..."
+                    Id: 4,
+                    Author: "anastasia_poli",
+                    AuthorImage: ProfileImage2,
+                    Text: "Nothing special..."
                 },
                 {
-                    commentId: 5,
-                    commentAuthor: "olivi_k",
-                    commentAuthorImage: ProfileImage3,
-                    commentText: "Is it real picture?"
+                    Id: 5,
+                    Author: "olivi_k",
+                    AuthorImage: ProfileImage3,
+                    Text: "Is it real picture?"
                 }
             ],
             
-            commentText: "",
+            text: "",
             comment: []
         };
 
-        this.onCommentTextChange = this.onCommentTextChange.bind(this);
+        this.onTextChange = this.onTextChange.bind(this);
         this.onCommentSubmit = this.onCommentSubmit.bind(this);
         
     }
@@ -66,10 +66,16 @@ export class Comments extends Component{
                 <ul>
                     { this.state.comments.map(
                         comment => 
-                        <li key={comment.commentId} id="comments-list">
-                        <img src={comment.commentAuthorImage} alt="userImage" />
-                        <span id="comment-space">{comment.commentAuthor}  </span>
-                        <span>{comment.commentText}</span>
+                        <li key={comment.Id} id="comments-list">
+                        <div className="outputComments-list">
+                            <div className="comment-user-info">
+                                <img src={comment.AuthorImage} alt="userImage" />
+                                <label id="comment-space">{comment.Author}  </label>
+                            </div>
+                            <div className="comment-text">
+                                <label>{comment.Text}</label>
+                            </div>
+                        </div>
                     </li>
                     )}
                 </ul>
@@ -77,38 +83,38 @@ export class Comments extends Component{
         );
     }
 
-    onCommentTextChange = event => {
-        this.setState({commentText: event.target.value});
+    onTextChange = event => {
+        this.setState({text: event.target.value});
     }
 
     determineMaxId = () => {
-        var id = Math.max.apply(Math, this.state.comments.map(comment => {return comment.commentId;}));
+        var id = Math.max.apply(Math, this.state.comments.map(comment => {return comment.Id;}));
         return id;
     }
 
     onCommentSubmit = event => {
         let newArray = [...this.state.comments];
         let newId = this.determineMaxId() + 1;
-        let commentText = this.state.commentText;
+        let text = this.state.text;
         //let userName = commenty.userName;
         /* let author = comment.userName;
-        let avatar = this.state.commentAuthorImage;*/     
+        let avatar = this.state.AuthorImage;*/     
         let author = " nasa";
         let avatar = NasaLogo;
 
 
         let comment = {
-            commentId: newId,
-            commentAuthor: author,
-            commentAuthorImage: avatar,
-            commentText: commentText
+            Id: newId,
+            Author: author,
+            AuthorImage: avatar,
+            Text: text
         };
 
         newArray.push(comment);
 
         this.setState(() => {
             return {comments: newArray,
-                    commentText: ""
+                    text: ""
             };
         });
 
@@ -149,7 +155,7 @@ export class Comments extends Component{
                                 {/* <label>{comment.userName}</label> */}
                                 {/* <label>nasa</label> */}
                                 <img src={NasaLogo} alt="NasaLogo"/>
-                                <input name="commentText" type="text" value={this.state.commentText} onChange={this.onCommentTextChange} placeholder="Add comment..."/>
+                                <input name="commentText" type="text" value={this.state.text} onChange={this.onTextChange} placeholder="Add comment..."/>
                                 <button name="addCommentButton" type="submit" value="Publish">Publish</button>
                             </div>   
                         </form>  

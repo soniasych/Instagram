@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import './NewPost.css';
 
+
 export class NewPost extends Component{
     constructor(props) {
         super(props);
@@ -16,10 +17,10 @@ export class NewPost extends Component{
             selectedFileName: undefined,
             value: ''
         };
+    }
 
-        this.onTextChange = this.onTextChange.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleImageClick = this.handleImageClick.bind(this);
+    componentDidMount() {
+        console.log('this.props 1', this.props)
     }
 
     onTextChange = event => {
@@ -31,7 +32,7 @@ export class NewPost extends Component{
         console.log(selectorFiles);
     } */
 
-    handleChange(event) {
+    handleChange = event => {
         if (event.target.files[0]) {
             this.setState({
                 selectedFile: event.target.files[0],
@@ -53,26 +54,32 @@ export class NewPost extends Component{
             imageUrl: this.state.imageUrl,
             likes: this.state.likes
         };
-        Axios.post('https://5b27755162e42b0014915662.mockapi.io/api/v1/posts/', data)
-            .then(response => {
-                console.log(response);
-                /* var newArray = [];
-                newArray.unshift(response.data);
-                response.data = newArray; */
+        Axios.post('https://5b27755162e42b0014915662.mockapi.io/api/v1/posts/', data);
 
-                var newArray = [];
-                newArray.unshift(response.data);
+        //this.routeToPostLayout();
 
-                for (var i = 0; i < response.data.length; i++) { 
-                    
-                    newArray.unshift(response.data[i]);
-                }
+        
+    }
 
-                response.data = newArray; 
-        });
+    routeToPostLayout = () =>{
+        return(
+            // <Link to="/">
+            <a href="/">
+                <button onClick={this.postDataHandler}>
+                {/* <button> */}
+                    Share
+                </button>
+            </a>
+            
+            
+            // </Link>
+        //this.props.history.push('/newPost');
+        )
+        
     }
 
     render() {
+        let shareButton = this.routeToPostLayout();
         return(
             <div className="NewPost">
                 <div className="MainNewPost-header">
@@ -88,9 +95,12 @@ export class NewPost extends Component{
                             </label>
                         </div>
                         <div>
-                            <button onClick={this.postDataHandler}>
-                                Share
-                            </button>
+                            {shareButton}
+                                {/* <button onClick={() => {
+                                    this.routeToPostLayout()
+                                }}>
+                                    Share
+                                </button> */}
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,6 @@
-/* .NewPost div{
-    display: flex;
-	flex-direction: column;
-	justify-content: center;
-} */
+.NewPost{
+    height: 100vh;
+}
 
 .NewPost-container{
     display: flex;
@@ -85,10 +83,11 @@
     width: 200vw;
     min-height: 20vw;
     font-size:  1.08em;
+    resize: none;
 }
 
 .NewPost-description{
-    border-bottom: 1px solid lightgray;
+    /* border-bottom: 1px solid lightgray; */
 }
 
 .NewPost-input-file input{

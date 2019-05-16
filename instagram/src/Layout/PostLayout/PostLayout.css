@@ -63,6 +63,10 @@
     margin-right: 0.5em;
 }
 
+.userImageDescription span{
+    word-break: break-all;
+}
+
 #comments {
     text-decoration: none;
     color: gray;

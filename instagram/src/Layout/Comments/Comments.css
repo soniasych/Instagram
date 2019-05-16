@@ -74,7 +74,7 @@
     flex-direction: row;
     justify-content: space-between;
     box-sizing: border-box;
-    min-height: calc(100vh - 41px);
+    min-height: calc(100vh - 52px);
     padding-bottom: 31px;
 }
 
@@ -140,4 +140,18 @@
     color: steelblue;
     font-size: 1em;
     padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    .input-comment {
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .MainComments-header {
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+    }
 }

@@ -8,8 +8,9 @@ import LikeIcon from '../../assets/instagram-like.png';
 import UserProfileIcon from '../../assets/instagram-user-profile.png';
 import { Link } from 'react-router-dom';
 
-export class Footer extends Component {
+export class Footer extends React.Component {
     render() {
+        console.log('this.props', this.props)
         return (
             <div className="MainFooter">
                 <div className="navbar">
@@ -22,9 +23,13 @@ export class Footer extends Component {
                         <img src={SearchIcon} alt="SearchIcon" />
                     </div>
                     <div>
-                        <Link to="/newPost">
+                        <button onClick={() => {
+                            this.props.history.push('/newPost', {
+                                post: this.props.post
+                            })
+                        }}>
                             <img src={LoadImageIcon} alt="LoadImageIcon" />
-                        </Link>
+                        </button>
                     </div>
                     <div>
                         <img src={LikeIcon} alt="LikeIcon" />
